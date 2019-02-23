@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-Extended input view for the form with additional validation (step-by-step) and error handling.
+Extended input view with animated title, text field, error text and additional fields to indicate whether the individual validation steps have been met.
                        DESC
 
   s.homepage         = 'https://github.com/wachus77/TIFormInputView'
