@@ -1,30 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6ex-ki-u13">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="ufC-wZ-h7g">
+        <scene sceneID="Dpp-eD-AuH">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="TIFormInputView_Example" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
-                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                <viewController id="6ex-ki-u13" customClass="ViewController" customModule="Input_views" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Qdj-et-JV3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="RtM-WT-3ZY" customClass="FormInputView" customModule="TIFormInputView">
+                                <rect key="frame" x="15" y="35" width="345" height="100"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="yZs-Tj-4OM" customClass="FormInputView" customModule="TIFormInputView">
+                                <rect key="frame" x="15" y="150" width="345" height="100"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.43921568630000002" green="0.8862745098" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="yZs-Tj-4OM" firstAttribute="leading" secondItem="oby-g7-0xo" secondAttribute="leading" constant="15" id="25m-y7-R04"/>
+                            <constraint firstItem="oby-g7-0xo" firstAttribute="trailing" secondItem="RtM-WT-3ZY" secondAttribute="trailing" constant="15" id="8DL-F4-R1z"/>
+                            <constraint firstItem="RtM-WT-3ZY" firstAttribute="top" secondItem="oby-g7-0xo" secondAttribute="top" constant="15" id="KLY-IA-Lqq"/>
+                            <constraint firstItem="RtM-WT-3ZY" firstAttribute="leading" secondItem="oby-g7-0xo" secondAttribute="leading" constant="15" id="SLQ-Eq-k6o"/>
+                            <constraint firstItem="oby-g7-0xo" firstAttribute="trailing" secondItem="yZs-Tj-4OM" secondAttribute="trailing" constant="15" id="WXg-GX-tF1"/>
+                            <constraint firstItem="yZs-Tj-4OM" firstAttribute="top" secondItem="RtM-WT-3ZY" secondAttribute="bottom" constant="15" id="h9N-YU-oNG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="oby-g7-0xo"/>
                     </view>
+                    <connections>
+                        <outlet property="email" destination="RtM-WT-3ZY" id="Dzp-Ml-6SQ"/>
+                        <outlet property="password" destination="yZs-Tj-4OM" id="IFO-oA-3sq"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jrq-kA-XMz" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="132" y="117.39130434782609"/>
         </scene>
     </scenes>
 </document>

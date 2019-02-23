@@ -1,0 +1,6 @@
+framework module Pods_TIFormInputView_Example {
+  umbrella header "Pods-TIFormInputView_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

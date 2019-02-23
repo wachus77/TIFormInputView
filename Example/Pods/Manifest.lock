@@ -1,0 +1,16 @@
+PODS:
+  - TIFormInputView (0.1.0)
+
+DEPENDENCIES:
+  - TIFormInputView (from `../`)
+
+EXTERNAL SOURCES:
+  TIFormInputView:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  TIFormInputView: bcd130a42279fe126095553dd92031f320cc9a01
+
+PODFILE CHECKSUM: 67f07f2b6456b1ca72987ad85b003713e08e6ef9
+
+COCOAPODS: 1.5.3
