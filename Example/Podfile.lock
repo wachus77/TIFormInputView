@@ -1,5 +1,5 @@
 PODS:
-  - TIFormInputView (0.1.0)
+  - TIFormInputView (0.2.0)
 
 DEPENDENCIES:
   - TIFormInputView (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  TIFormInputView: bcd130a42279fe126095553dd92031f320cc9a01
+  TIFormInputView: 3af93a8ff24e7d3938e599dcee1ae24d333f3002
 
 PODFILE CHECKSUM: 67f07f2b6456b1ca72987ad85b003713e08e6ef9
 

@@ -1,9 +1,9 @@
 {
   "name": "TIFormInputView",
-  "version": "0.1.0",
-  "summary": "A short description of TIFormInputView.",
+  "version": "0.2.0",
+  "summary": "Extended input view for the form with additional validation (step-by-step) and error handling.",
   "swift_version": "4.2",
-  "description": "TODO: Add long description of the pod here.",
+  "description": "Extended input view with animated title, text field, error text and additional fields to indicate whether the individual validation steps have been met.",
   "homepage": "https://github.com/wachus77/TIFormInputView",
   "license": {
     "type": "MIT",
@@ -14,7 +14,7 @@
   },
   "source": {
     "git": "https://github.com/wachus77/TIFormInputView.git",
-    "tag": "0.1.0"
+    "tag": "0.2.0"
   },
   "platforms": {
     "ios": "9.0"
