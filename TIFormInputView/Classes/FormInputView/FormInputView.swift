@@ -185,10 +185,14 @@ open class FormInputView: UIView, XibSetup {
         }
     }
     
-    func validate(silent:Bool) -> Bool {
+    func validate(silent: Bool, hideError: Bool = false) -> Bool {
         let result = inputIsValid
         if silent == false {
             self.showHideError(show: !result)
+        }
+        
+        if result && hideError {
+            self.showHideError(show: false)
         }
         return result
     }
@@ -210,6 +214,7 @@ extension FormInputView: UITextFieldDelegate {
     }
     
     @objc func textFieldDidChange(textField: UITextField) {
+        _ = validate(silent: true, hideError: true)
         validateAdditionalStepByStep()
         inputTextTitle.isHidden = isEmpty
         delegate?.inputViewTextFieldDidChange(self)
