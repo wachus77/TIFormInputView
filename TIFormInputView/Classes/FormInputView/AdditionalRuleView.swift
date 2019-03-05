@@ -51,6 +51,8 @@ class AdditionalRuleView: UIView, XibSetup {
         ruleLabel.font = rule.textFont
         ruleValButton.rule = rule
         ruleValButtonWidth.constant = rule.imageWidth
+        ruleValButton.customizeButton()
     }
 }
+
 

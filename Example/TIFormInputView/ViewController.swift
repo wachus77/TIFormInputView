@@ -73,7 +73,9 @@ class ViewController: UIViewController {
         
         for rule in additionalRules {
             rule.textColor = UIColor.black
-            rule.imageWidth = 17
+            rule.imageWidth = 22
+            rule.selectedStateImage = UIImage(named: "selected")!
+            rule.unselectedStateImage = UIImage(named: "unselected")!
         }
         
         let passwordRegex = "^.*(?=.{8,})(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).*$"

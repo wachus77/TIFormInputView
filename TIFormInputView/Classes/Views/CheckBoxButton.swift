@@ -28,7 +28,7 @@ class CheckBoxButton: UIButton {
         self.customizeButton()
     }
     
-    private func customizeButton() {
+    public func customizeButton() {
         self.setSelected()
     }
     
