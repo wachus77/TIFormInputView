@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'TIFormInputView'
-  s.version          = '0.2.0'
+  s.version          = '0.3.0'
   s.summary          = 'Extended input view for the form with additional validation (step-by-step) and error handling.'
   s.swift_version    = '4.2'
 
