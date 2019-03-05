@@ -9,21 +9,27 @@
 import UIKit
 
 open class AdditionalValidationRule {
-    var regex: String
-    var text: String
-    var selectedStateImage: UIImage
-    var unselectedStateImage: UIImage
+    public var regex: String
+    public var text: String
+    public var textColor: UIColor
+    public var textFont: UIFont
+    public var selectedStateImage: UIImage
+    public var unselectedStateImage: UIImage
     
     public init(regex: String, text: String) {
         self.regex = regex
         self.text = text
+        self.textFont = UIFont.systemFont(ofSize: 14)
+        self.textColor = UIColor.white
         self.selectedStateImage = UIImage(named: "selected.png", in: Bundle.resourseBundle, compatibleWith: nil)!
         self.unselectedStateImage = UIImage(named: "unselected.png", in: Bundle.resourseBundle, compatibleWith: nil)!
     }
     
-    public init(regex: String, text: String, selectedStateImage: UIImage, unselectedStateImage: UIImage) {
+    public init(regex: String, text: String, textColor: UIColor, textFont: UIFont, selectedStateImage: UIImage, unselectedStateImage: UIImage) {
         self.regex = regex
         self.text = text
+        self.textFont = textFont
+        self.textColor = textColor
         self.selectedStateImage = selectedStateImage
         self.unselectedStateImage = unselectedStateImage
     }

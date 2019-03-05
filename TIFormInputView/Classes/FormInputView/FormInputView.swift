@@ -94,6 +94,7 @@ open class FormInputView: UIView, XibSetup {
             inputTextField.attributedPlaceholder = NSAttributedString(string: placeholder,
                                                                       attributes: [NSAttributedString.Key.foregroundColor: textColor])
             inputTextField.textColor = textColor
+            inputTextTitle.textColor = textColor
         }
     }
     

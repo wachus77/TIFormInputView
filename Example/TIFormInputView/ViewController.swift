@@ -58,6 +58,8 @@ class ViewController: UIViewController {
         email.regex = emailRegex
         email.error = emailErrorText
         email.errorColor = UIColor(hexString: "#a12428")
+        email.textColor = UIColor.black
+        email.separatorColor = UIColor.black
         
         let addtRulMin8CharRegex = "^.*(?=.{8,}).*$"
         let addtRulUpperLowerCaseRegex = "^.*(?=.*[A-Z])(?=.*[a-z]).*$"
@@ -69,6 +71,10 @@ class ViewController: UIViewController {
         
         let additionalRules = [AdditionalValidationRule(regex: addtRulMin8CharRegex, text: addtRulMin8CharText), AdditionalValidationRule(regex: addtRulUpperLowerCaseRegex, text: addtRulUpperLowerCaseText), AdditionalValidationRule(regex: addtRulOneNumeralRegex, text: addtRulOneNumeralText)]
         
+        for rule in additionalRules {
+            rule.textColor = UIColor.black
+        }
+        
         let passwordRegex = "^.*(?=.{8,})(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).*$"
         let passwordPlaceholder = "password"
         let passwordErrorText = "please provide valid password"
@@ -78,6 +84,8 @@ class ViewController: UIViewController {
         password.regex = passwordRegex
         password.error = passwordErrorText
         password.errorColor = UIColor(hexString: "#a12428")
+        password.textColor = UIColor.black
+        password.separatorColor = UIColor.black
         password.initAdditionalValidationRules(additionalRules: additionalRules)
     }
     

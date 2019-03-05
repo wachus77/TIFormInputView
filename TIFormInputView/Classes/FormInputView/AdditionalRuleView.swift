@@ -45,6 +45,8 @@ class AdditionalRuleView: UIView, XibSetup {
     
     private func setInputViewType() {
         ruleLabel.text = rule.text
+        ruleLabel.textColor = rule.textColor
+        ruleLabel.font = rule.textFont
         ruleValButton.rule = rule
     }
 }
