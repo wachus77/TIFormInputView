@@ -4,6 +4,7 @@
 [![Swift 4.2](https://img.shields.io/badge/Swift-4.2-green.svg?style=flat)](https://developer.apple.com/swift/)
 
 ![Animation](https://raw.githubusercontent.com/wachus77/TIFormInputView/master/Screenshots/forminputview.gif)
+![Animation](https://raw.githubusercontent.com/wachus77/TIFormInputView/master/Screenshots/forminputview2.gif)
 
 ## Example
 
