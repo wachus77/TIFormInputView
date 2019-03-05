@@ -66,7 +66,7 @@ open class FormInputView: UIView, XibSetup {
     public var placeholder: String = "default" {
         didSet {
             inputTextField.attributedPlaceholder = NSAttributedString(string: placeholder,
-                                                                      attributes: [NSAttributedString.Key.foregroundColor: textColor])
+                                                                      attributes: [NSAttributedString.Key.foregroundColor: textColor, NSAttributedString.Key.font: textFont])
             
             inputTextTitle.text = placeholder
         }
@@ -92,15 +92,35 @@ open class FormInputView: UIView, XibSetup {
     public var textColor: UIColor = .white {
         didSet {
             inputTextField.attributedPlaceholder = NSAttributedString(string: placeholder,
-                                                                      attributes: [NSAttributedString.Key.foregroundColor: textColor])
+                                                                      attributes: [NSAttributedString.Key.foregroundColor: textColor, NSAttributedString.Key.font: textFont])
             inputTextField.textColor = textColor
             inputTextTitle.textColor = textColor
+        }
+    }
+    
+    public var textFont: UIFont = UIFont.systemFont(ofSize: 17) {
+        didSet {
+            inputTextField.attributedPlaceholder = NSAttributedString(string: placeholder,
+                                                                      attributes: [NSAttributedString.Key.foregroundColor: textColor, NSAttributedString.Key.font: textFont])
+            inputTextField.font = textFont
         }
     }
     
     public var errorColor: UIColor = .red {
         didSet {
             errorLabel.textColor = errorColor
+        }
+    }
+    
+    public var errorFont: UIFont = UIFont.systemFont(ofSize: 14) {
+        didSet {
+            errorLabel.font = errorFont
+        }
+    }
+    
+    public var titleFont: UIFont = UIFont.systemFont(ofSize: 14) {
+        didSet {
+            inputTextTitle.font = titleFont
         }
     }
     
