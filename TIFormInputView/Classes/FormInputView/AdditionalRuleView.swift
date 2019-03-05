@@ -15,6 +15,8 @@ class AdditionalRuleView: UIView, XibSetup {
     @IBOutlet weak var ruleValButton: CheckBoxButton!
     @IBOutlet weak var ruleLabel: UILabel!
     
+    @IBOutlet weak var ruleValButtonWidth: NSLayoutConstraint!
+    
     // MARK: - Public properties
     
     var view: UIView!
@@ -48,6 +50,7 @@ class AdditionalRuleView: UIView, XibSetup {
         ruleLabel.textColor = rule.textColor
         ruleLabel.font = rule.textFont
         ruleValButton.rule = rule
+        ruleValButtonWidth.constant = rule.imageWidth
     }
 }
 
