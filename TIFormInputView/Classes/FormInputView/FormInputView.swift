@@ -134,6 +134,28 @@ open class FormInputView: UIView, XibSetup {
     // MARK: - Private properties
     
     private var additionalRuleViews: [AdditionalRuleView] = []
+    private var additionalRules: [AdditionalValidationRule] = [] {
+        didSet {
+            removeAdditionalValidationRules()
+            for rule in additionalRules {
+                let view = AdditionalRuleView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+                view.rule = rule
+                additionalRuleViews.append(view)
+            }
+            stackView = UIStackView(arrangedSubviews: additionalRuleViews)
+            guard let stackView = stackView else { return }
+            stackView.translatesAutoresizingMaskIntoConstraints = false
+            stackView.axis = .vertical
+            stackView.spacing = 5
+            stackView.distribution = .fill
+            stackView.alignment = .fill
+            stackContainer.addSubview(stackView)
+            stackView.topAnchor.constraint(equalTo: stackContainer.topAnchor).isActive = true
+            stackView.bottomAnchor.constraint(equalTo: stackContainer.bottomAnchor).isActive = true
+            stackView.leadingAnchor.constraint(equalTo: stackContainer.leadingAnchor).isActive = true
+            stackView.trailingAnchor.constraint(equalTo: stackContainer.trailingAnchor).isActive = true
+        }
+    }
     private var stackView: UIStackView?
     
     // MARK: - Init
@@ -168,35 +190,16 @@ open class FormInputView: UIView, XibSetup {
         inputTextField.addTarget(self, action: #selector(self.textFieldDidChange(textField:)), for: .editingChanged)
     }
     
-    private func addAdditionalValidationRules(additionalRules: [AdditionalValidationRule]) {
-        for rule in additionalRules {
-            let view = AdditionalRuleView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-            view.rule = rule
-            additionalRuleViews.append(view)
-        }
-        stackView = UIStackView(arrangedSubviews: additionalRuleViews)
-        guard let stackView = stackView else { return }
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        stackView.spacing = 5
-        stackView.distribution = .fill
-        stackView.alignment = .fill
-        stackContainer.addSubview(stackView)
-        stackView.topAnchor.constraint(equalTo: stackContainer.topAnchor).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: stackContainer.bottomAnchor).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: stackContainer.leadingAnchor).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: stackContainer.trailingAnchor).isActive = true
-    }
-    
     public func initAdditionalValidationRules(additionalRules: [AdditionalValidationRule]) {
         if !additionalRules.isEmpty && additionalRuleViews.isEmpty {
-            addAdditionalValidationRules(additionalRules: additionalRules)
+            self.additionalRules = additionalRules
         }
     }
     
     public func setAdditionalValidationRules(additionalRules: [AdditionalValidationRule]) {
-        removeAdditionalValidationRules()
-        addAdditionalValidationRules(additionalRules: additionalRules)
+        if !additionalRules.isEmpty {
+            self.additionalRules = additionalRules
+        }
     }
     
     public func removeAdditionalValidationRules() {
