@@ -84,17 +84,15 @@ class ViewController: UIViewController {
         password.additionalRules = additionalRules
     }
     
-    
     @IBAction func editAdditionalRules(_ sender: Any) {
-        additionalRules[0].text = "edited rule text"
-        additionalRules.removeLast()
+        additionalRules[0].text = "the text of the edited rule"
+        //additionalRules.removeLast()
         //password.setAdditionalValidationRules(additionalRules: additionalRules)
-        password.additionalRules[1].text = "edited rule text 1"
+        password.additionalRules[1].text = "the text of the edited rule 1"
     }
     
     @IBAction func editEmailField(_ sender: Any) {
         email.textFont = UIFont.systemFont(ofSize: 25)
     }
-    
     
 }
