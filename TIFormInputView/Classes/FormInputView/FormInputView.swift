@@ -18,6 +18,7 @@ protocol InputViewDelegate: class {
     
 }
 
+@IBDesignable
 open class FormInputView: UIView, XibSetup {
     
     // MARK: - Outlets
@@ -144,6 +145,14 @@ open class FormInputView: UIView, XibSetup {
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         configureView()
+    }
+    
+    // MARK: - Prepare interface builder
+    
+    override open func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        xibSetup()
+        view?.prepareForInterfaceBuilder()
     }
     
     // MARK: - Configuration functions
