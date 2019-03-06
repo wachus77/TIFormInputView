@@ -11,11 +11,37 @@ import UIKit
 typealias CompletionHandler = (() -> Void)?
 
 protocol InputViewDelegate: class {
-    
     func additionalStepByStepValidationResult(rule: AdditionalValidationRule, result: Bool)
     func inputViewTextFieldDidEndEditing(_ view: FormInputView) -> ()
     func inputViewTextFieldDidChange(_ view: FormInputView) -> ()
-    
+}
+
+protocol RefreshAdditionalRulesDelegate: class {
+    func refreshAdditionalRules()
+}
+
+extension FormInputView: RefreshAdditionalRulesDelegate {
+    func refreshAdditionalRules() {
+        removeAdditionalValidationRules()
+        for rule in additionalRules {
+            let view = AdditionalRuleView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+            view.rule = rule
+            rule.refreshAdditionalRulesDelegate = self
+            additionalRuleViews.append(view)
+        }
+        stackView = UIStackView(arrangedSubviews: additionalRuleViews)
+        guard let stackView = stackView else { return }
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.spacing = 5
+        stackView.distribution = .fill
+        stackView.alignment = .fill
+        stackContainer.addSubview(stackView)
+        stackView.topAnchor.constraint(equalTo: stackContainer.topAnchor).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: stackContainer.bottomAnchor).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: stackContainer.leadingAnchor).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: stackContainer.trailingAnchor).isActive = true
+    }
 }
 
 @IBDesignable
@@ -131,31 +157,15 @@ open class FormInputView: UIView, XibSetup {
         }
     }
     
+    public var additionalRules: [AdditionalValidationRule] = [] {
+        didSet {
+            refreshAdditionalRules()
+        }
+    }
+    
     // MARK: - Private properties
     
     private var additionalRuleViews: [AdditionalRuleView] = []
-    private var additionalRules: [AdditionalValidationRule] = [] {
-        didSet {
-            removeAdditionalValidationRules()
-            for rule in additionalRules {
-                let view = AdditionalRuleView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-                view.rule = rule
-                additionalRuleViews.append(view)
-            }
-            stackView = UIStackView(arrangedSubviews: additionalRuleViews)
-            guard let stackView = stackView else { return }
-            stackView.translatesAutoresizingMaskIntoConstraints = false
-            stackView.axis = .vertical
-            stackView.spacing = 5
-            stackView.distribution = .fill
-            stackView.alignment = .fill
-            stackContainer.addSubview(stackView)
-            stackView.topAnchor.constraint(equalTo: stackContainer.topAnchor).isActive = true
-            stackView.bottomAnchor.constraint(equalTo: stackContainer.bottomAnchor).isActive = true
-            stackView.leadingAnchor.constraint(equalTo: stackContainer.leadingAnchor).isActive = true
-            stackView.trailingAnchor.constraint(equalTo: stackContainer.trailingAnchor).isActive = true
-        }
-    }
     private var stackView: UIStackView?
     
     // MARK: - Init

@@ -80,14 +80,16 @@ class ViewController: UIViewController {
         password.regex = passwordRegex
         password.error = passwordErrorText
         password.errorColor = UIColor(hexString: "#a12428")
-        password.initAdditionalValidationRules(additionalRules: additionalRules)
+        //password.initAdditionalValidationRules(additionalRules: additionalRules)
+        password.additionalRules = additionalRules
     }
     
     
     @IBAction func editAdditionalRules(_ sender: Any) {
         additionalRules[0].text = "edited rule text"
         additionalRules.removeLast()
-        password.setAdditionalValidationRules(additionalRules: additionalRules)
+        //password.setAdditionalValidationRules(additionalRules: additionalRules)
+        password.additionalRules[1].text = "edited rule text 1"
     }
     
     @IBAction func editEmailField(_ sender: Any) {

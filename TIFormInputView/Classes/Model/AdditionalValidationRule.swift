@@ -9,13 +9,43 @@
 import UIKit
 
 open class AdditionalValidationRule {
-    public var regex: String
-    public var text: String
-    public var textColor: UIColor
-    public var textFont: UIFont
-    public var selectedStateImage: UIImage
-    public var unselectedStateImage: UIImage
-    public var imageWidth: CGFloat
+    public var regex: String {
+        didSet {
+            refreshAdditionalRulesDelegate?.refreshAdditionalRules()
+        }
+    }
+    public var text: String {
+        didSet {
+            refreshAdditionalRulesDelegate?.refreshAdditionalRules()
+        }
+    }
+    public var textColor: UIColor {
+        didSet {
+            refreshAdditionalRulesDelegate?.refreshAdditionalRules()
+        }
+    }
+    public var textFont: UIFont {
+        didSet {
+            refreshAdditionalRulesDelegate?.refreshAdditionalRules()
+        }
+    }
+    public var selectedStateImage: UIImage {
+        didSet {
+            refreshAdditionalRulesDelegate?.refreshAdditionalRules()
+        }
+    }
+    public var unselectedStateImage: UIImage {
+        didSet {
+            refreshAdditionalRulesDelegate?.refreshAdditionalRules()
+        }
+    }
+    public var imageWidth: CGFloat {
+        didSet {
+            refreshAdditionalRulesDelegate?.refreshAdditionalRules()
+        }
+    }
+    
+    weak var refreshAdditionalRulesDelegate: RefreshAdditionalRulesDelegate?
     
     public init(regex: String, text: String) {
         self.regex = regex
@@ -37,4 +67,6 @@ open class AdditionalValidationRule {
         self.imageWidth = imageWidth
     }
 }
+
+
 
