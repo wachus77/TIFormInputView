@@ -10,7 +10,7 @@ import UIKit
 
 typealias CompletionHandler = (() -> Void)?
 
-protocol InputViewDelegate: class {
+public protocol InputViewDelegate: class {
     func additionalStepByStepValidationResult(rule: AdditionalValidationRule, result: Bool)
     func inputViewTextFieldDidEndEditing(_ view: FormInputView) -> ()
     func inputViewTextFieldDidChange(_ view: FormInputView) -> ()
