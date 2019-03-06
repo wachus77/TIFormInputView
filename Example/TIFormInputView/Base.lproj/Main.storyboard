@@ -26,6 +26,29 @@
                                 <rect key="frame" x="15" y="150" width="345" height="100"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="tLE-jh-EOn">
+                                <rect key="frame" x="15" y="617" width="345" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n8N-nI-PUu">
+                                        <rect key="frame" x="0.0" y="0.0" width="165" height="30"/>
+                                        <state key="normal" title="edit additional rules">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="editAdditionalRules:" destination="6ex-ki-u13" eventType="touchUpInside" id="f4P-KJ-8FO"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="toh-0I-pB9">
+                                        <rect key="frame" x="180" y="0.0" width="165" height="30"/>
+                                        <state key="normal" title="edit email field">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="editEmailField:" destination="6ex-ki-u13" eventType="touchUpInside" id="wod-b0-ssg"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.85490196078431369" green="0.32549019607843138" blue="0.32549019607843138" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -34,7 +57,10 @@
                             <constraint firstItem="RtM-WT-3ZY" firstAttribute="top" secondItem="oby-g7-0xo" secondAttribute="top" constant="15" id="KLY-IA-Lqq"/>
                             <constraint firstItem="RtM-WT-3ZY" firstAttribute="leading" secondItem="oby-g7-0xo" secondAttribute="leading" constant="15" id="SLQ-Eq-k6o"/>
                             <constraint firstItem="oby-g7-0xo" firstAttribute="trailing" secondItem="yZs-Tj-4OM" secondAttribute="trailing" constant="15" id="WXg-GX-tF1"/>
+                            <constraint firstAttribute="trailing" secondItem="tLE-jh-EOn" secondAttribute="trailing" constant="15" id="Y3I-Ad-cXB"/>
                             <constraint firstItem="yZs-Tj-4OM" firstAttribute="top" secondItem="RtM-WT-3ZY" secondAttribute="bottom" constant="15" id="h9N-YU-oNG"/>
+                            <constraint firstItem="tLE-jh-EOn" firstAttribute="leading" secondItem="Qdj-et-JV3" secondAttribute="leading" constant="15" id="nxL-9Z-gMs"/>
+                            <constraint firstItem="oby-g7-0xo" firstAttribute="bottom" secondItem="tLE-jh-EOn" secondAttribute="bottom" constant="20" id="soA-0s-SHS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oby-g7-0xo"/>
                     </view>

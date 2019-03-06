@@ -45,6 +45,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var email: FormInputView!
     @IBOutlet weak var password: FormInputView!
     
+    var additionalRules: [AdditionalValidationRule] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         hideKeyboardWhenTappedAround()
@@ -67,7 +69,7 @@ class ViewController: UIViewController {
         let addtRulUpperLowerCaseText = "at least one upper case and one lower case"
         let addtRulOneNumeralText = "at least one numeral"
         
-        let additionalRules = [AdditionalValidationRule(regex: addtRulMin8CharRegex, text: addtRulMin8CharText), AdditionalValidationRule(regex: addtRulUpperLowerCaseRegex, text: addtRulUpperLowerCaseText), AdditionalValidationRule(regex: addtRulOneNumeralRegex, text: addtRulOneNumeralText)]
+        additionalRules = [AdditionalValidationRule(regex: addtRulMin8CharRegex, text: addtRulMin8CharText), AdditionalValidationRule(regex: addtRulUpperLowerCaseRegex, text: addtRulUpperLowerCaseText), AdditionalValidationRule(regex: addtRulOneNumeralRegex, text: addtRulOneNumeralText)]
         
         let passwordRegex = "^.*(?=.{8,})(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).*$"
         let passwordPlaceholder = "password"
@@ -80,5 +82,17 @@ class ViewController: UIViewController {
         password.errorColor = UIColor(hexString: "#a12428")
         password.initAdditionalValidationRules(additionalRules: additionalRules)
     }
+    
+    
+    @IBAction func editAdditionalRules(_ sender: Any) {
+        additionalRules[0].text = "edited rule text"
+        additionalRules.removeLast()
+        password.setAdditionalValidationRules(additionalRules: additionalRules)
+    }
+    
+    @IBAction func editEmailField(_ sender: Any) {
+        email.textFont = UIFont.systemFont(ofSize: 25)
+    }
+    
     
 }

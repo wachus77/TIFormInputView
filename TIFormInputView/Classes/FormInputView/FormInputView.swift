@@ -196,11 +196,12 @@ open class FormInputView: UIView, XibSetup {
     
     public func setAdditionalValidationRules(additionalRules: [AdditionalValidationRule]) {
         removeAdditionalValidationRules()
-        initAdditionalValidationRules(additionalRules: additionalRules)
+        addAdditionalValidationRules(additionalRules: additionalRules)
     }
     
     public func removeAdditionalValidationRules() {
         guard let stackView = stackView else { return }
+        additionalRuleViews = []
         stackView.removeFromSuperview()
     }
     
@@ -224,7 +225,7 @@ open class FormInputView: UIView, XibSetup {
     private func validateAdditionalStepByStep() {
         if !additionalRuleViews.isEmpty {
             for view in additionalRuleViews {
-                let result = self.validateAdditionalStepByStepRegex(rule: view.rule)
+                let result = validateAdditionalStepByStepRegex(rule: view.rule)
                 view.ruleValButton.isSelected = result
                 delegate?.additionalStepByStepValidationResult(rule: view.rule, result: result)
             }
@@ -234,11 +235,11 @@ open class FormInputView: UIView, XibSetup {
     func validate(silent: Bool, hideError: Bool = false) -> Bool {
         let result = inputIsValid
         if silent == false {
-            self.showHideError(show: !result)
+            showHideError(show: !result)
         }
         
         if result && hideError {
-            self.showHideError(show: false)
+            showHideError(show: false)
         }
         return result
     }
@@ -267,4 +268,5 @@ extension FormInputView: UITextFieldDelegate {
     }
     
 }
+
 
