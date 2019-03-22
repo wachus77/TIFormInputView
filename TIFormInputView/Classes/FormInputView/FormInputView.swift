@@ -139,7 +139,6 @@ open class FormInputView: UIView, XibSetup {
         }
     }
     
-    
     // MARK: - Private, Internal properties
     
     var view: UIView!
