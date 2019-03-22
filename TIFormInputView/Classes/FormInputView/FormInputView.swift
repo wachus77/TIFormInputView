@@ -33,9 +33,7 @@ open class FormInputView: UIView, XibSetup {
     
     // MARK: - Public properties
     
-    weak var delegate: InputViewDelegate?
-    
-    var view: UIView!
+    public weak var delegate: InputViewDelegate?
     
     public var regex: String?
     
@@ -61,6 +59,12 @@ open class FormInputView: UIView, XibSetup {
     public var keyboardType: UIKeyboardType = .default {
         didSet {
             inputTextField.keyboardType = keyboardType
+        }
+    }
+    
+    public var additionalRules: [AdditionalValidationRule] = [] {
+        didSet {
+            refreshAdditionalRules()
         }
     }
     
@@ -101,17 +105,25 @@ open class FormInputView: UIView, XibSetup {
         }
     }
     
+    public var errorColor: UIColor = .red {
+        didSet {
+            errorLabel.textColor = errorColor
+        }
+    }
+    
+    public var separatorColor: UIColor = .white {
+        didSet {
+            separator.backgroundColor = separatorColor
+        }
+    }
+    
+    // MARK: - fonts
+    
     public var textFont: UIFont = UIFont.systemFont(ofSize: 17) {
         didSet {
             inputTextField.attributedPlaceholder = NSAttributedString(string: placeholder,
                                                                       attributes: [NSAttributedString.Key.foregroundColor: textColor, NSAttributedString.Key.font: textFont])
             inputTextField.font = textFont
-        }
-    }
-    
-    public var errorColor: UIColor = .red {
-        didSet {
-            errorLabel.textColor = errorColor
         }
     }
     
@@ -127,20 +139,10 @@ open class FormInputView: UIView, XibSetup {
         }
     }
     
-    public var separatorColor: UIColor = .white {
-        didSet {
-            separator.backgroundColor = separatorColor
-        }
-    }
     
-    public var additionalRules: [AdditionalValidationRule] = [] {
-        didSet {
-            refreshAdditionalRules()
-        }
-    }
+    // MARK: - Private, Internal properties
     
-    // MARK: - Private properties
-    
+    var view: UIView!
     private var additionalRuleViews: [AdditionalRuleView] = []
     private var stackView: UIStackView?
     
